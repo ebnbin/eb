@@ -13,26 +13,22 @@ const val sdk28P9 = Build.VERSION_CODES.P
 const val sdk29Q10 = Build.VERSION_CODES.Q
 const val sdk30R11 = Build.VERSION_CODES.R
 
-private fun sdk(versionCode: Int): Boolean {
-    return Build.VERSION.SDK_INT >= versionCode
-}
+fun sdk21L5() = Build.VERSION.SDK_INT >= sdk21L5
 
-fun sdk21L5() = sdk(sdk21L5)
+fun sdk22L51() = Build.VERSION.SDK_INT >= sdk22L51
 
-fun sdk22L51() = sdk(sdk22L51)
+fun sdk23M6() = Build.VERSION.SDK_INT >= sdk23M6
 
-fun sdk23M6() = sdk(sdk23M6)
+fun sdk24N7() = Build.VERSION.SDK_INT >= sdk24N7
 
-fun sdk24N7() = sdk(sdk24N7)
+fun sdk25N71() = Build.VERSION.SDK_INT >= sdk25N71
 
-fun sdk25N71() = sdk(sdk25N71)
+fun sdk26O8() = Build.VERSION.SDK_INT >= sdk26O8
 
-fun sdk26O8() = sdk(sdk26O8)
+fun sdk27O81() = Build.VERSION.SDK_INT >= sdk27O81
 
-fun sdk27O81() = sdk(sdk27O81)
+fun sdk28P9() = Build.VERSION.SDK_INT >= sdk28P9
 
-fun sdk28P9() = sdk(sdk28P9)
+fun sdk29Q10() = Build.VERSION.SDK_INT >= sdk29Q10
 
-fun sdk29Q10() = sdk(sdk29Q10)
-
-fun sdk30R11() = sdk(sdk30R11)
+fun sdk30R11() = Build.VERSION.SDK_INT >= sdk30R11
