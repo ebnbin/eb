@@ -1,11 +1,19 @@
 buildscript {
+    apply("https://raw.githubusercontent.com/ebnbin/gradle-extra/main/extra.gradle.kts")
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.0.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30")
+        val dependencyMap: Map<String, String> by rootProject.extra
+        fun dependency(id: String): String {
+            val version = dependencyMap[id].also {
+                requireNotNull(it)
+            }
+            return "$id:$version"
+        }
+        classpath(dependency("com.android.tools.build:gradle"))
+        classpath(dependency("org.jetbrains.kotlin:kotlin-gradle-plugin"))
     }
 }
 
