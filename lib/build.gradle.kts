@@ -11,6 +11,8 @@ android {
     defaultConfig {
         minSdkVersion(versionMap.getValue("minSdkVersion").toInt())
         targetSdkVersion(versionMap.getValue("targetSdkVersion").toInt())
+        val proguardFiles = project.file("proguard").listFiles() ?: emptyArray()
+        consumerProguardFiles(*proguardFiles)
     }
     sourceSets {
         configureEach {
@@ -27,6 +29,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        moduleName = "dev.ebnbin.eb"
     }
     buildFeatures {
         viewBinding = true
