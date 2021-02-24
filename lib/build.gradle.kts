@@ -6,10 +6,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    val versionMap: Map<String, String> by rootProject.extra
+    compileSdkVersion(versionMap.getValue("compileSdkVersion").toInt())
     defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(30)
+        minSdkVersion(versionMap.getValue("minSdkVersion").toInt())
+        targetSdkVersion(versionMap.getValue("targetSdkVersion").toInt())
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
