@@ -1,5 +1,5 @@
 buildscript {
-    apply("https://raw.githubusercontent.com/ebnbin/gradle-extra/v0.0.1/extra.gradle.kts")
+    apply("https://raw.githubusercontent.com/ebnbin/gradle-extra/v0.0.2/extra.gradle.kts")
     repositories {
         google()
         jcenter()
