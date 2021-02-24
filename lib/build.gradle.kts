@@ -33,6 +33,7 @@ dependencies {
         return "$id:$version"
     }
     implementation(dependency("androidx.core:core-ktx"))
+    implementation(dependency("androidx.recyclerview:recyclerview"))
 }
 
 afterEvaluate {
