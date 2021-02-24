@@ -20,6 +20,7 @@ android {
             res.srcDirs(*srcDirs)
         }
     }
+    resourcePrefix("eb_")
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
