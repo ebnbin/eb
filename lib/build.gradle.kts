@@ -45,6 +45,9 @@ dependencies {
         return "$id:$version"
     }
     api(dependency("androidx.core:core-ktx"))
+    api(dependency("androidx.appcompat:appcompat"))
+    api(dependency("androidx.activity:activity-ktx"))
+    api(dependency("androidx.fragment:fragment-ktx"))
     api(dependency("androidx.recyclerview:recyclerview"))
 }
 
