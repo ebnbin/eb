@@ -44,10 +44,14 @@ dependencies {
         }
         return "$id:$version"
     }
+
     api(dependency("androidx.core:core-ktx"))
     api(dependency("androidx.appcompat:appcompat"))
     api(dependency("androidx.activity:activity-ktx"))
     api(dependency("androidx.fragment:fragment-ktx"))
+    api(dependency("androidx.lifecycle:lifecycle-viewmodel-ktx"))
+    api(dependency("androidx.lifecycle:lifecycle-livedata-ktx"))
+    api(dependency("androidx.annotation:annotation"))
     api(dependency("androidx.recyclerview:recyclerview"))
 }
 
