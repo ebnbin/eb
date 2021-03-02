@@ -28,7 +28,7 @@ abstract class Pref<T : Any> : LiveData<T>(), SharedPreferences.OnSharedPreferen
         return update()
     }
 
-    override fun setValue(value: T) {
+    public override fun setValue(value: T) {
         setValue(value, force = true)
     }
 
@@ -37,7 +37,7 @@ abstract class Pref<T : Any> : LiveData<T>(), SharedPreferences.OnSharedPreferen
         update(value, post = false, force = force)
     }
 
-    override fun postValue(value: T) {
+    public override fun postValue(value: T) {
         postValue(value, force = true)
     }
 
