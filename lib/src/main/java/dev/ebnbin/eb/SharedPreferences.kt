@@ -10,7 +10,7 @@ fun getSharedPreferences(name: String = defaultSharedPreferencesName): SharedPre
     return app.getSharedPreferences(name, Context.MODE_PRIVATE)
 }
 
-fun <T> SharedPreferences.get(key: String, defaultValue: T): T {
+fun <T : Any> SharedPreferences.get(key: String, defaultValue: T): T {
     @Suppress("IMPLICIT_CAST_TO_ANY", "UNCHECKED_CAST")
     return when (defaultValue) {
         is String -> getString(key, defaultValue)
@@ -23,7 +23,7 @@ fun <T> SharedPreferences.get(key: String, defaultValue: T): T {
     } as T
 }
 
-fun <T> SharedPreferences.Editor.put(key: String, value: T): SharedPreferences.Editor {
+fun <T : Any> SharedPreferences.Editor.put(key: String, value: T): SharedPreferences.Editor {
     @Suppress("UNCHECKED_CAST")
     return when (value) {
         is String -> putString(key, value)
