@@ -8,3 +8,6 @@ val app: Application
 inline fun <reified T : Application> app(): T {
     return app as T
 }
+
+val appId: String
+    get() = app.packageName
