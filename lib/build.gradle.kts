@@ -52,7 +52,6 @@ dependencies {
     api(dependency("androidx.lifecycle:lifecycle-viewmodel-ktx"))
     api(dependency("androidx.lifecycle:lifecycle-livedata-ktx"))
     api(dependency("androidx.annotation:annotation"))
-    api(dependency("androidx.recyclerview:recyclerview"))
 }
 
 afterEvaluate {
