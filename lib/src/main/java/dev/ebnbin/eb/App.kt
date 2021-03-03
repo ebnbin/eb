@@ -3,6 +3,11 @@ package dev.ebnbin.eb
 import android.app.Application
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
+import android.os.Process
+import androidx.core.os.postDelayed
+import kotlin.system.exitProcess
 
 val app: Application
     get() = EBInitializer.app
@@ -33,3 +38,18 @@ val appLabel: CharSequence
 
 val appIcon: Drawable
     get() = app.packageManager.getApplicationIcon(app.applicationInfo)
+
+/**
+ * 杀死进程.
+ */
+fun closeApp(restart: Boolean = false, delay: Long = 0L) {
+    Handler(Looper.getMainLooper()).postDelayed(delay) {
+        if (restart) {
+            app.packageManager.getLaunchIntentForPackage(appId)?.let {
+                app.startActivity(it)
+            }
+        }
+        Process.killProcess(Process.myPid())
+        exitProcess(0)
+    }
+}
