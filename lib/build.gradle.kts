@@ -31,9 +31,6 @@ android {
         jvmTarget = "1.8"
         moduleName = "dev.ebnbin.eb"
     }
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
