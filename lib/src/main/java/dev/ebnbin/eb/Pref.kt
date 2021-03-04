@@ -34,7 +34,7 @@ abstract class Pref<T : Any> : LiveData<T>(), SharedPreferences.OnSharedPreferen
 
     fun setValue(value: T, force: Boolean) {
         apply(value)
-        update(value, post = false, force = force)
+        update(value, force = force)
     }
 
     public override fun postValue(value: T) {
@@ -43,10 +43,10 @@ abstract class Pref<T : Any> : LiveData<T>(), SharedPreferences.OnSharedPreferen
 
     fun postValue(value: T, force: Boolean) {
         apply(value)
-        update(value, force = force)
+        update(value, post = true, force = force)
     }
 
-    fun commitValue(value: T, post: Boolean = true, force: Boolean = true): Boolean {
+    fun commitValue(value: T, post: Boolean = false, force: Boolean = true): Boolean {
         return commit(value).also {
             update(post = post, force = force)
         }
@@ -64,7 +64,7 @@ abstract class Pref<T : Any> : LiveData<T>(), SharedPreferences.OnSharedPreferen
         return sharedPreferences.edit().put(key, value).commit()
     }
 
-    private fun update(value: T = get(), post: Boolean = true, force: Boolean = false): T {
+    private fun update(value: T = get(), post: Boolean = false, force: Boolean = false): T {
         if (force || super.getValue() != value) {
             if (post) {
                 super.postValue(value)
