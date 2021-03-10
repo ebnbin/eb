@@ -2,8 +2,6 @@ package dev.ebnbin.eb
 
 import android.os.Build
 
-const val SDK_21_L_5 = Build.VERSION_CODES.LOLLIPOP
-const val SDK_22_L_5_1 = Build.VERSION_CODES.LOLLIPOP_MR1
 const val SDK_23_M_6 = Build.VERSION_CODES.M
 const val SDK_24_N_7 = Build.VERSION_CODES.N
 const val SDK_25_N_7_1 = Build.VERSION_CODES.N_MR1
