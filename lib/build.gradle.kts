@@ -58,4 +58,5 @@ dependencies {
     api(Dependencies.androidxAnnotation_annotation.notation())
     api(Dependencies.androidxCollection_collectionKtx.notation())
     api(Dependencies.androidxLifecycle_lifecycleLivedataKtx.notation())
+    api(Dependencies.comGoogleCodeGson_gson.notation())
 }
