@@ -5,7 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 
-fun <T> MutableLiveData<T>.setValue(value: T, diff: Boolean = false) {
+fun <T> LiveData<T>.get(): T {
+    @Suppress("UNCHECKED_CAST")
+    return value as T
+}
+
+fun <T> MutableLiveData<T>.set(value: T, diff: Boolean = true) {
     if (!diff || this.value != value) {
         this.value = value
     }
@@ -15,7 +20,7 @@ fun <T> LiveData<T>.observe(
     owner: LifecycleOwner,
     valueGetter: () -> T,
     valueSetter: (value: T) -> Unit,
-    diff: Boolean = false,
+    diff: Boolean = true,
 ) {
     observe(owner) {
         if (!diff || valueGetter() != it) {
@@ -27,7 +32,7 @@ fun <T> LiveData<T>.observe(
 fun <T, S1> mapLiveData(
     source1: LiveData<S1>,
     init: Boolean = true,
-    diff: Boolean = false,
+    diff: Boolean = true,
     transform: (S1) -> T,
 ): LiveData<T> {
     return mapLiveData(
@@ -48,7 +53,7 @@ fun <T, S1, S2> mapLiveData(
     source1: LiveData<S1>,
     source2: LiveData<S2>,
     init: Boolean = true,
-    diff: Boolean = false,
+    diff: Boolean = true,
     transform: (S1, S2) -> T,
 ): LiveData<T> {
     return mapLiveData(
@@ -72,7 +77,7 @@ fun <T, S1, S2, S3> mapLiveData(
     source2: LiveData<S2>,
     source3: LiveData<S3>,
     init: Boolean = true,
-    diff: Boolean = false,
+    diff: Boolean = true,
     transform: (S1, S2, S3) -> T,
 ): LiveData<T> {
     return mapLiveData(
@@ -96,11 +101,11 @@ fun <T, S1, S2, S3> mapLiveData(
 fun <T> mapLiveData(
     sources: Array<out LiveData<*>>,
     init: Boolean = true,
-    diff: Boolean = false,
+    diff: Boolean = true,
     transform: (Array<*>) -> T,
 ): LiveData<T> {
     fun onChanged(result: MediatorLiveData<T>, values: Array<*>) {
-        result.setValue(transform(values), diff)
+        result.set(transform(values), diff)
     }
 
     val result = MediatorLiveData<T>()
