@@ -20,8 +20,12 @@ fun <T> LiveData<T>.observe(
     owner: LifecycleOwner,
     valueGetter: () -> T,
     valueSetter: (value: T) -> Unit,
+    init: Boolean = true,
     diff: Boolean = true,
 ) {
+    if (init) {
+        valueSetter(get())
+    }
     observe(owner) {
         if (!diff || valueGetter() != it) {
             valueSetter(it)
