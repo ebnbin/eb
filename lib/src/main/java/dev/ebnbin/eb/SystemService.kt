@@ -3,6 +3,7 @@ package dev.ebnbin.eb
 import android.app.NotificationManager
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.WindowManager
 import androidx.core.content.getSystemService
 
 private inline fun <reified T : Any> Context.requireSystemService(): T {
@@ -13,4 +14,7 @@ val Context.layoutInflater: LayoutInflater
     get() = requireSystemService()
 
 val Context.notificationManager: NotificationManager
+    get() = requireSystemService()
+
+val Context.windowManager: WindowManager
     get() = requireSystemService()
